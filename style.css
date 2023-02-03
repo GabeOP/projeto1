@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: aliceblue;
+}
+main {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.container-bandeira {
+    background-color: aqua;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+}
+.bandeira {
+    display: flex;
+    justify-content: center;
+}
+#img {
+    width: 300px;
+}
+.container-bandeira input {
+    height: 30px;
+}
+.container-select {
+    background-color: black;
+    height: 60vh;
+}
