@@ -70,27 +70,13 @@ export function retornaArrayNumeros(n){
 */
 export function addBandeiras(array){
     let container_select = document.querySelector(".container-select");
-    for(let i=0 ; i<array.length ; i++){
+    for(let i=1 ; i<array.length ; i++){
 
-        let url = "https://countryflagsapi.com/png/" + array[i].code.toLowerCase();
+        let path = "./Imagens/" + array[i].abbreviation.toLowerCase() + ".png";
         let img = document.createElement("img");                            // cria elemento imagem que vai ser inserido no container-select
         img.id = "bandeira" + i;                                            // cada elemento recebe o id -> "bandeira" + numero
-        
-        
-        async function getData(){
-            let response = await fetch(url/*, { mode:'no-cors' }*/);
-            let data = await response.blob();
-            return data;
-        }
-
-        getData().then(data => {
-            const imageUrl = URL.createObjectURL(data);
-            img.src = imageUrl;
-            container_select.appendChild(img);
-        })
-        .catch(error => console.log(error))
-
-
+        img.src = path;
+        container_select.appendChild(img);
     }
 }
 
@@ -108,32 +94,13 @@ export function removerBandeira(indice){
 */
 export function mostrarBandeira(indice, array){
     let imagem = document.getElementById("img");
-    let url = "https://countryflagsapi.com/png/" + array[0].code.toLowerCase(); // caminho da imagem
-    imagem.src = url;               
+    let path = "./Imagens/" + array[indice].abbreviation.toLowerCase() + ".png"; // caminho da imagem
+    imagem.src = path;               
 }
 
 /*
-* Verifica se o texto do input está certo
-* Se estiver, remove esta da lista e avança pra próxima bandeira
+* Término
 */
-/*
-export function verificaTexto(){
-    let str_resposta = input.value;
-    if(str_resposta.length == paises[indice_resposta].name.length){         // evita de comparar string com string a cada digitação, comparando apenas se o tamanho das duas for igual
-        if(str_resposta == paises[indice_resposta].name){
-            input.value = "";
-            removerBandeira(indice_resposta);
-            if(indice_resposta < paises.length - 1){                        // verifica se ainda há bandeiras para responder
-                mostrarBandeira(++indice_resposta);
-            }else{
-                //fim
-                Timer.clear();                                     // adiciona o h1
-                let parent = imagem.parentElement;                          // retorna pai do elemento imagem
-                let h = document.createElement("h1");                       // cria h1 -> "fim"
-                h.innerText = "fim"                                         // ----------------
-                parent.removeChild(imagem);                                 // remove elemento html da imagem
-                parent.appendChild(h); 
-            }
-        }
-    }
-}*/
+export function finalizar(){
+
+}
