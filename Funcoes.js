@@ -59,9 +59,9 @@ function recRandomArray(qtd ,inicio, fim, array){
     }
 }
 
-export function retornaArrayNumeros(n){
+export function retornaArrayNumeros(qtd_numeros, total){
     let paises = new Array();
-    recRandomArray(n, 0, 239, paises);
+    recRandomArray(qtd_numeros, 0, total-1, paises);
     return paises;
 }
 

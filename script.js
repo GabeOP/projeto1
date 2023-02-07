@@ -1,6 +1,6 @@
 import {Timer} from "./Timer.js";
 import {retornaArrayNumeros, addBandeiras, removerBandeira, mostrarBandeira} from "./Funcoes.js";
-import {countries} from "./countries_en.js";
+import {countries} from "./countries_pt_br.js";
 
 let imagem = document.getElementById("img");
 let input = document.getElementById("input");
@@ -8,7 +8,7 @@ let indice_resposta = 0;                                                        
 let numeros = [];
 let paises = [];
 
-numeros = retornaArrayNumeros(5);
+numeros = retornaArrayNumeros(Timer.qtd_bandeiras, countries.length);
 for(let i=0 ; i<numeros.length ; i++){
     paises.push(countries[numeros[i]]);
 }
