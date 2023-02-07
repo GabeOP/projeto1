@@ -1,16 +1,20 @@
 export class Timer{
     static text = document.getElementById("timer");
-    static value = 0;
+    static value = 20;
     static interval = 0;
     static is_running = false;
 
+
     static iniciar(){
         Timer.interval = setInterval(
-            function(){ 
-                Timer.value += 0.01;
-                Timer.text.innerHTML = Timer.value.toFixed(2);
+            function tempo(){ 
+                Timer.value -= 1;
+                Timer.text.innerHTML = Timer.value + 's';
+                if(Timer.value < 0) {
+                    Timer.text.innerHTML = 'Fim do tempo'
+                }
             }
-            , 10 );
+            , 1000);     
     }
     static finalizar(){
         Timer.limpar();
