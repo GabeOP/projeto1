@@ -81,6 +81,29 @@ export function addBandeiras(array){
 }
 
 /*
+* Adiciona ao container-select uma div com as bandeiras e os nomes abaixo
+*/
+export function addBandeirasNome(array){
+    let container_select = document.querySelector(".container-select");
+    container_select.innerHTML = "";
+    for(let i=0 ; i<array.length ; i++){
+        let div = document.createElement("div");
+
+        let path = "./Imagens/" + array[i].abbreviation.toLowerCase() + ".png";
+        let img = document.createElement("img");                            
+        img.id = "bandeira" + i; 
+        img.src = path;
+
+        let nome_bandeira = document.createElement("h1");
+        nome_bandeira.innerHTML = array[i].name;                           
+        
+        div.appendChild(img);
+        div.appendChild(nome_bandeira);
+        container_select.appendChild(div);
+    }
+}
+
+/*
 * Remove a bandeira do container-select com base no índice
 */
 export function removerBandeira(indice){

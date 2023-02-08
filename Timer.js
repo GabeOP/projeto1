@@ -1,5 +1,5 @@
 export class Timer{
-    static qtd_bandeiras = 5;
+    static qtd_bandeiras = 2;
     static text = document.getElementById("timer");
     static max_time = this.qtd_bandeiras * 3;
     static time = 0;

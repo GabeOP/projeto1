@@ -1,5 +1,5 @@
 import {Timer} from "./Timer.js";
-import {retornaArrayNumeros, addBandeiras, removerBandeira, mostrarBandeira} from "./Funcoes.js";
+import {retornaArrayNumeros, addBandeiras, addBandeirasNome, removerBandeira, mostrarBandeira} from "./Funcoes.js";
 import {countries} from "./countries_pt_br.js";
 
 let imagem = document.getElementById("img");
@@ -34,13 +34,13 @@ function verificarTexto(){
             if(indice_resposta < paises.length - 1){                        // verifica se ainda há bandeiras para responder
                 indice_resposta++;
                 removerBandeira(indice_resposta);
-                console.log(indice_resposta)
                 mostrarBandeira(indice_resposta, paises);
             }else{
                 //fim
                 Timer.finalizar();
                 let parent = imagem.parentElement;
                 parent.removeChild(imagem);
+                addBandeirasNome(paises);
             }
         }
     }
